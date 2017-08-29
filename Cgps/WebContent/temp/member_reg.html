@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>jQuery form selector</title>
+<style>
+	.require { color:red; background:yellowgreen; }
+</style>
+<script src="./scripts/jquery-3.2.1.min.js"></script>
+<script >
+$(function(){
+	//input 에 초기값 val("")
+	//이름: 홍길동
+	$("#userName").val("홍길동");
+	
+	//직업: 웹프로그래머
+	$("#userjob").val("c");
+	//관심분야:게임
+	$("[name='hobby']").val(["game","music"]);
+	
+	//버튼 클릭 이벤트(입력값 체크)
+	$("#send").click(function(){
+		//id 입력여부 에크 
+		if( $("#userId").val() == ""){
+			alert("아디 입력");
+			$("#userId").focus();
+			return false;  //기본기능 중지(preventDefault())
+		}
+		
+		//관심분야(체크박스) 반드시 하나 이상..
+		else if($("[name='hobby']:checked").length == 0){
+		
+			alert("관심분야체크하세요.");
+			return false;  //기본기능 중지(preventDefault())
+		}
+		
+		
+		//성별 체크여부 확인
+		
+		
+		else if($("[name='userSex']:checked").length == 0){
+			
+			alert("성별체크하세요.");
+			return false;  //기본기능 중지(preventDefault())
+		
+		}
+		
+	});
+});
+</script>
+</head>
+<body>
+	<p class="title">회원가입</p>
+	<form action="member_reg_action.jsp">
+		<table>
+			<tr>
+				<td>아디</td>
+				<td><input type="text" id="userId" /></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" id="userName" /></td>
+			</tr>			
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" id="userPW" /></td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td><input type="radio" id="userSex" name="userSex" value="man"/><span>남</span>
+				    <input type="radio" id="userSex" name="userSex" value="wamon"/><span>여</span></td>
+			</tr>
+			<tr>
+				<td>직업</td>
+				<td><select id="userjob">
+					<option value="a">웹디자이너</option>
+					<option value="b">웹프로그래머</option>
+					<option value="c">웹퍼블리셔</option>
+				    </select></td>
+			</tr>
+			<tr>
+				<td>관심분야</td>
+				<td><input type="checkbox" id="hobby" name="hobby" value="music"/><span>음악</span>
+				    <input type="checkbox" id="hobby" name="hobby" value="game"/><span>게임</span>
+				    <input type="checkbox" id="hobby" name="hobby" value="reading"/><span>독서</span></td>
+			</tr>			
+			<tr>
+				<td>자기소개</td>
+				<td><textarea id="intro"></textarea></td>
+			</tr>
+		</table>
+		<button id="send">저장</button>		
+	</form>
+
+</body>
+</html>

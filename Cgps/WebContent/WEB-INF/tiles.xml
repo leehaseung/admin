@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+<definition name="*/*.tile" template="/template/layout.jsp" >
+
+<put-attribute name="title" value="위치추적기" />
+
+<put-attribute name="top" value="/template/top.jsp" />
+
+
+<put-attribute name="body" value="/{1}/{2}.jsp" /> 
+
+<put-attribute name="footer" value="/template/footer.jsp" />
+</definition>
+</tiles-definitions>
