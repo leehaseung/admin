@@ -119,15 +119,76 @@ public class DeptDAO extends DAO {
 		List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
 		try {
 			conn = connect();			
-			String sql = "select * from departments";
+			String sql = " select svr_name,to_char(s_date,'yy/mm/dd hh24:mi:ss') as sdate,cpu1load,cpu5load,cpu15load," + 
+					"  case" + 
+					"        when ifhcin >= 1024*1024*1024 then round(ifhcin/1024/1024/1024,2) ||' GB'" + 
+					"        when ifhcin >= 1024*1024  then round(ifhcin/1024/1024,2) ||' MB'" + 
+					"        when ifhcin >= 1024 then round(ifhcin/1024,2) ||' KB'" + 
+					"        when ifhcin < 1024 then round(ifhcin,2) ||' B'" + 
+					" end as ifhcin," + 
+					"  case" + 
+					"        when ifhcout >= 1024*1024*1024 then round(ifhcout/1024/1024/1024,2) ||' GB'" + 
+					"        when ifhcout >= 1024*1024  then round(ifhcout/1024/1024,2) ||' MB'" + 
+					"        when ifhcout >= 1024 then round(ifhcout/1024,2) ||' KB'" + 
+					"        when ifhcout < 1024 then round(ifhcout,2) ||' B'" + 
+					" end as ifhcout,usercpu,syscpu,idlecpu," + 
+					"    case" + 
+					"        when availswap >= 1024*1024  then round(availswap/1024/1024,2) ||' GB'" + 
+					"        when availswap >= 1024 then round(availswap/1024,2) ||' MB'" + 
+					"        when availswap < 1024 then round(availswap,2) ||' KB'" + 
+					" end as availswap," + 
+					"      case" + 
+					"        when totalram >= 1024*1024  then round(totalram/1024/1024,2) ||' GB'" + 
+					"        when totalram >= 1024 then round(totalram/1024,2) ||' MB'" + 
+					"        when totalram < 1024 then round(totalram,2) ||' KB'" + 
+					" end as totalram," + 
+					"  case" + 
+					"        when usedram >= 1024*1024  then round(usedram/1024/1024,2) ||' GB'" + 
+					"        when usedram >= 1024 then round(usedram/1024,2) ||' MB'" + 
+					"        when usedram < 1024 then round(usedram,2) ||' KB'" + 
+					" end as usedram," + 
+					"   case" + 
+					"        when freeram >= 1024*1024  then round(freeram/1024/1024,2) ||' GB'" + 
+					"        when freeram >= 1024 then round(freeram/1024,2) ||' MB'" + 
+					"        when freeram < 1024 then round(freeram,2) ||' KB'" + 
+					" end as freeram," + 
+					"   case" + 
+					"        when availdsik >= 1024*1024  then round(availdsik/1024/1024,2) ||' GB'" + 
+					"        when availdsik >= 1024 then round(availdsik/1024,2) ||' MB'" + 
+					"        when availdsik < 1024 then round(availdsik,2) ||' KB'" + 
+					" end as availdsik," + 
+					"  case" + 
+					"        when useddisk >= 1024*1024  then round(useddisk/1024/1024,2) ||' GB'" + 
+					"        when useddisk >= 1024 then round(useddisk/1024,2) ||' MB'" + 
+					"        when useddisk < 1024 then round(useddisk,2) ||' KB'" + 
+					" end as useddisk" + 
+					"  from svrdata join server " + 
+					" on svrdata.svr_no = server.svr_no" + 
+					" where s_date = (select max(s_date) from svrdata)";
+			
+			
+			
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);			
 			while(rs.next()) {
 				Map<String,Object> map = new HashMap<String,Object>();
-				map.put("departmentId", rs.getInt("department_id"));
-				map.put("departmentName", rs.getString("department_name"));
-				map.put("managerId", rs.getInt("manager_id"));
-				map.put("locationId", rs.getBigDecimal("location_id"));
+				map.put("svrName", rs.getString("svr_name"));
+				map.put("sdate", rs.getString("sdate"));
+				map.put("cpu1load", rs.getString("cpu1load"));
+				map.put("cpu5load", rs.getString("cpu5load"));
+				map.put("cpu15load", rs.getString("cpu15load"));
+				map.put("usercpu", rs.getString("usercpu"));
+				map.put("syscpu", rs.getString("syscpu"));
+				map.put("idlecpu", rs.getString("idlecpu"));
+				map.put("availswap", rs.getString("availswap"));
+				map.put("totalram", rs.getString("totalram"));
+				map.put("usedram", rs.getString("usedram"));
+				map.put("freeram", rs.getString("freeram"));
+				map.put("availdsik", rs.getString("availdsik"));
+				map.put("useddisk", rs.getString("useddisk"));
+				map.put("ifhcin", rs.getString("ifhcin"));
+				map.put("ifhcout", rs.getString("ifhcout"));
+				
 				list.add(map);
 			}			
 			//4. disconnect

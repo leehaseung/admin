@@ -20,41 +20,116 @@ $(function(){
 			{
 				
 				url:"../DeptListAllJsonServ",
-				editurl: "../DeptDMLServ.do",
+				//editurl: "../DeptDMLServ.do",
 				datatype: "json",
 				pager:"#pager",
 				colModel: [
-					{ label: '부서명', 
-						name: 'departmentName', 
-						width: 75,
+					{ label: '서버', 
+						name: 'svrName', 
+						width: 45,
 						key: true,
 						editable: true
 					},
-					{ label: '지역코드', 
-						name: 'locationId', 
-						width: 90,
+					{ label: '시', 
+						name: 'sdate', 
+						width: 100,
 						key: true,
 						editable: true
 					},
-					{ label: '부서id', 
-						name: 'departmentId',
-						width: 100,	
+					{ label: '일일in', 
+						name: 'ifhcin',
+						width: 50,	
 						key: true,
 						editable: true
 						},
 					
-					{ label: '매니저id',
-						name: 'managerId',
-						width: 80,
+						{ label: '일일out',
+						name: 'ifhcout',
+						width: 50,
 						key: true,
 						editable: true
-					}
+						},
+						{ label: 'cpu1load',
+							name: 'cpu1load',
+							width: 30,
+							key: true,
+							editable: true
+						},
+						{ label: 'cpu5load',
+							name: 'cpu5load',
+							width: 30,
+							key: true,
+					     	editable: true
+							},
+							{ label: 'cpu15load',
+							name: 'cpu15load',
+							width: 30,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'usercpu',
+							name: 'usercpu',
+							width: 30,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'syscpu',
+							name: 'syscpu',
+							width: 30,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'idlecpu',
+							name: 'idlecpu',
+							width: 30,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'availswap',
+							name: 'availswap',
+							width: 50,
+							key: true,
+					     	editable: true
+			  			},
+					           
+			  			{ label: 'totalram',
+							name: 'totalram',
+							width: 50,
+							key: true,
+					     	editable: true
+			  			},
+					           
+			  			{ label: 'usedram',
+							name: 'usedram',
+							width: 50,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'freeram',
+							name: 'freeram',
+							width: 50,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'availdsik',
+							name: 'availdsik',
+							width: 50,
+							key: true,
+					     	editable: true
+			  			},
+			  			{ label: 'useddisk',
+							name: 'useddisk',
+							width: 50,
+							key: true,
+					     	editable: true
+			  			},
+					           
 					             
 				],
 				loadonce: true,
 				page:1,
 			viewrecords: true, // show the current page, data rang and total records on the toolbar
-			width: 780,
+			width: 1200,
 			height: 200,
 			rownumbers: true, // show row numbers
 			 rownumWidth: 25, // the width of the row numbers columns
@@ -105,7 +180,19 @@ $(function(){
 </head>
 <body>
 <!-- ui/dept_grid.jsp -->
-	<table id="list"></table>
+   <div class="v-page-wrap no-bottom-spacing">
+
+         	<table id="list"></table>
 	<div id="pager"></div>
+     
+
+          
+
+        
+        </div>
+
+
+          
+
 </body>
 </html>

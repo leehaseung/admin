@@ -50,6 +50,18 @@
                                     <li><a class="current" href="marker.tile">gps</a></li>
                                 </ul>
                             </li>
+                            
+                            
+                               <nav class="nav-main mega-menu">
+                       			 <ul class="nav nav-pills nav-main" id="mainMenu">
+                            			 <li class="dropdown active">
+                              		  <a class="dropdown-toggle" href="server.tile">서버 <i class="fa fa-caret-down"></i></a>
+                              		  <ul class="dropdown-menu">
+                                    <li><a class="current" href="server.tile">서버</a></li>
+                                    <li><a class="current" href="http://leehs.iptime.org:6767">ip카메라</a></li>
+                          	      </ul>
+                         		   </li>
+                         		   
                             <li class="dropdown active">
                                 <a class="dropdown-toggle" href="#">Home <i class="fa fa-caret-down"></i></a>
                                 <ul class="dropdown-menu">
@@ -320,37 +332,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="#">Blog <i class="fa fa-caret-down"></i></a>
-                                <ul class="dropdown-menu">
-                                    <!-- <li><a href="blog-standard-sidebar.html">Blog Timeline</a></li> -->
-                                    <li><a href="blog-standard-sidebar.html">Blog Standard</a></li>
-                                    <li><a href="blog-mini-sidebar.html">Blog Small</a></li>
-                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                    <li><a href="blog-masonry-fw.html">Blog Fullwidth Masonry</a></li>
-                                    <li class="dropdown-submenu">
-                                        <a href="#">Blog Posts</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="blog-standard-post.html">Standard Post</a></li>
-                                            <li><a href="blog-full-width-post.html">Full Width Post</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="contact-us.html">Contact</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="contact-us.html"><i class="fa fa-send-o"></i>Contact Us - v1</a></li>
-                                    <li><a href="contact-us-2.html"><i class="fa fa-send-o"></i>Contact Us - v2</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" href="#">Support <i class="fa fa-caret-down"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="changelog.html"><i class="fa fa-terminal"></i>Changelog</a></li>
-                                    <li><a href="theme-plugins.html"><i class="fa fa-star-o"></i>Theme Plugins</a></li>
-                                </ul>
-                            </li>
+                           
+                         
 
                         </ul>
                     </nav>
@@ -375,7 +358,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="heading-text">
-                            <h1 class="entry-title">렉관계로 3시간 데이터만 제공됩니다.</h1>
+                            <h1 class="entry-title"></h1>
                         </div>
 
                         <ol class="breadcrumb">
