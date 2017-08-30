@@ -18,7 +18,7 @@
                 <!--Site Logo-->
                 <div class="logo">
                     <a href="index.html">
-                        <img alt="Volvox" src="img/logo.png" data-logo-height="35">
+                        <img alt="Volvox" src="img/logo2.png" data-logo-height="35">
                     </a>
                 </div>
                 <!--End Site Logo-->
